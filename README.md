@@ -40,7 +40,7 @@ This project will be implemented with the following technologies:
 * AviationStack and Airport API to acquire routes and airport geolocation.
 
 ## Implementation Timeline ##
-NB:
+
 
 * ### Friday Afternoon & Weekend: ### 
   * Setup project.
