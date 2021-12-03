@@ -21,6 +21,8 @@ Users Will be able to:
 
 ![Alt text](https://github.com/skvisshal/FlightRouteTracker/blob/main/Image%2012-3-21%20at%202.17%20AM.jpeg?raw=true "Wireframe")
 
+![Alt text](https://github.com/skvisshal/FlightRouteTracker/blob/main/RouteMap.svg?raw=true "Sample Map")
+
 * Nav links include links to this project's Github repo, my LinkedIn.
 * Map UI will be clikable on  all airports.
 * The side customization bar will allow choosing of airports including destination and departure.
