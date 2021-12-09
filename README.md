@@ -19,7 +19,7 @@ Users Will be able to:
 
 ## Wireframes ##
 
-![Alt text](https://github.com/skvisshal/FlightRouteTracker/blob/main/Image%2012-3-21%20at%202.17%20AM.jpeg?raw=true "Wireframe")
+![Alt text](https://github.com/skvisshal/FlightRouteTracker/blob/main/sampleTemplate.jpeg "Wireframe")
 
 ![Alt text](https://github.com/skvisshal/FlightRouteTracker/blob/main/RouteMap.svg?raw=true "Sample Map")
 
