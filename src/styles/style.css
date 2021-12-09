@@ -1,11 +1,70 @@
 body {
-  background-color: white;
-  text-align: center;
-  font-family: sans-serif;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: top;
+  background-image:url(http://bit.ly/2gPLxZ4);
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica;
+  letter-spacing: 0.02em;
+    font-weight: 400;
+  -webkit-font-smoothing: antialiased; 
+}
+
+h1 {
+	font-family: 'Dancing Script', cursive;
+	font-size: 80px;
+	margin-bottom: 30px;
+  -webkit-text-stroke-width: 0.1px;
+  -webkit-text-stroke-color: red;
+  
+}
+
+h2 {
+	font-family: 'Dancing Script', cursive;
+  -webkit-text-stroke-width: 0.1px;
+  -webkit-text-stroke-color: red;
+  
+}
+
+aside {
+  width: 30%;
+  padding-top: 100px;
+  padding-left: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+  float: right;
+  font-style: italic;
+}
+
+.blurred-box{
+  position: relative;
+  width: 250px;
+  height: 350px;
+  top: calc(50% - 175px);
+  left: calc(50% - 125px);
+  background: inherit;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.blurred-box:after{
+ content: '';
+ width: 300px;
+ height: 300px;
+ background: inherit; 
+  position: relative;
+ left: -25px;
+ right: 0;
+ top: -25px;
+ bottom: 0;
+ box-shadow: inset 0 0 0 200px rgba(255,255,255,0.05);
+ filter: blur(10px);
 }
 
 .land {
-  fill: #dddddd;
+  fill: black;
 }
 
 .border {
@@ -14,22 +73,21 @@ body {
 }
 
 .interior {
-  stroke: white;
+  stroke: #721d1d;
 }
 
 .exterior {
-  stroke: #bbbbbb;
+  stroke: #802313;
 }
 
 .airport {
-  fill: white;
-  opacity: 0.6;
+  opacity: 1;
   stroke: #252525;
 }
 
 .flight {
   fill: none;
-  stroke: #252525;
+  stroke: lightslategray;
   stroke-width: 1px;
   stroke-opacity: 0.1;
 }
@@ -42,7 +100,21 @@ body {
 
 .highlight {
   opacity: 1 !important;
-  stroke: blue !important;
+  stroke: darkmagenta !important;
+  stroke-width: 2px !important;
+  stroke-opacity: 0.8 !important;
+}
+
+.voronoi-highlight {
+  opacity: 1 !important;
+  stroke: lightsalmon !important;
+  stroke-width: 2px !important;
+  stroke-opacity: 0.8 !important;
+}
+
+.clicked-highlight {
+  opacity: 1 !important;
+  stroke: lightskyblue !important;
   stroke-width: 2px !important;
   stroke-opacity: 0.8 !important;
 }
@@ -51,11 +123,112 @@ g#voronoi {
   pointer-events: all;
 }
 
-/* shadow trick from bl.ocks.org */
 #tooltip {
   font-size: 10pt;
-  font-weight: 900;
-  fill: white;
-  text-shadow: 1px 1px 0 #252525, 1px -1px 0 #252525, -1px 1px 0 #252525, -1px -1px 0 #252525;
+  font-weight: 800;
+  fill: rgba(236, 231, 231, 0.945);
 }
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: darkred;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:nth-of-type(odd) {
+    background-color: black;
+    color: white;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid darkred;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: red;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px red;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+
 
