@@ -40,9 +40,12 @@ for (let i = 0; i < rad.length; i++) {
         svg.select("g#airports").remove();
         svg.select("g#flights").remove();
         svg.select("g#voronoi").remove();
+        svg.select("text#tooltip").remove();
         document.getElementById("svgId").innerHTML += `<g id="flights"></g>`;
         document.getElementById("svgId").innerHTML += `<g id="airports"></g>`;
         document.getElementById("svgId").innerHTML += `<g id="voronoi"></g>`;
+        document.getElementById("svgId").innerHTML += `<text id="tooltip" style="display: none;"></text>`;
+
         Promise
             .all([d3.csv("../data/airports.csv", airportCreate),
             d3.csv("../data/flights.csv", flightCountConv)])
