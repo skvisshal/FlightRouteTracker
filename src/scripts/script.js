@@ -28,11 +28,28 @@ function flightCountConv(flight) {
     flight.count = parseInt(flight.count);
     return flight;
 }
+let rad = document.formRad.airportCount;
+let prev = null;
+for (let i = 0; i < rad.length; i++) {
+    rad[i].addEventListener('change', function () {
+        (prev) ? console.log(prev.value) : null;
+        if (this !== prev) {
+            prev = this;
+        }
+        console.log(this.value);
+        svg.select("g#airports").remove();
+        svg.select("g#flights").remove();
+        svg.select("g#voronoi").remove();
+        document.getElementById("svgId").innerHTML += `<g id="flights"></g>`;
+        document.getElementById("svgId").innerHTML += `<g id="airports"></g>`;
+        document.getElementById("svgId").innerHTML += `<g id="voronoi"></g>`;
+        Promise
+            .all([d3.csv("../data/airports.csv", airportCreate),
+            d3.csv("../data/flights.csv", flightCountConv)])
+            .then(processData.bind({quant:this.value}));
 
-Promise
-    .all([d3.csv("../data/airports.csv", airportCreate), 
-        d3.csv("../data/flights.csv", flightCountConv)])
-    .then(processData);
+    });
+}
 
 function processData(values) {
 
@@ -57,8 +74,8 @@ function processData(values) {
     airports = airports.filter(airport => airport.outgoing > 0 && airport.incoming > 0);
 
     airports.sort((a, b) => d3.descending(a.outgoing, b.outgoing));
-
-    airports = airports.slice(0, );
+    
+    airports = airports.slice(0, this.quant);
     drawAirports(airports);
     drawPolygons(airports);
 
@@ -192,6 +209,7 @@ function drawPolygons(airports) {
             document.getElementById('airport-country').innerText = airport.country;
             document.getElementById('airport-incoming').innerText = airport.incoming;
             document.getElementById('airport-outgoing').innerText = airport.outgoing;
+            document.getElementById('airport-connections').innerText = airport.flights.length;
         });
 }
 
