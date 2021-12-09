@@ -5,7 +5,7 @@ const height = parseInt(svg.attr("height"));
 
 const projection = d3.geoAlbers().scale(1300).translate([490, 300]);
 
-d3.json("../data/states-albers-10m.json").then(drawMap);
+d3.json("data/states-albers-10m.json").then(drawMap);
 
 function airportCreate(airport) {
 
@@ -47,8 +47,8 @@ for (let i = 0; i < rad.length; i++) {
         document.getElementById("svgId").innerHTML += `<text id="tooltip" style="display: none;"></text>`;
 
         Promise
-            .all([d3.csv("../data/airports.csv", airportCreate),
-            d3.csv("../data/flights.csv", flightCountConv)])
+            .all([d3.csv("data/airports.csv", airportCreate),
+            d3.csv("data/flights.csv", flightCountConv)])
             .then(processData.bind({quant:this.value}));
 
     });
